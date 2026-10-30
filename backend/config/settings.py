@@ -141,7 +141,7 @@ REST_FRAMEWORK = {
 # CORS Configuration
 cors_origins_str = os.getenv(
     'CORS_ALLOWED_ORIGINS',
-    'http://localhost:5500,http://127.0.0.1:5500,http://localhost:3000,http://127.0.0.1:8000,http://localhost:8000,http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173'
+    'http://localhost:5500,http://127.0.0.1:5500,http://localhost:3000,http://127.0.0.1:8000,http://localhost:8000,http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173,https://portfolio-full-stack-deployment.vercel.app'
 )
 CORS_ALLOWED_ORIGINS = [orig.strip() for orig in cors_origins_str.split(',') if orig.strip()]
 CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow local frontend testing on any port / file server during dev
@@ -156,6 +156,12 @@ CORS_ALLOW_HEADERS = [
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
+]
+
+# CSRF
+CSRF_TRUSTED_ORIGINS = [
+    'https://portfolio-full-stack-deployment.vercel.app',
+    'https://portfolio-fullstack-deployment.onrender.com',
 ]
 
 # Internationalization
